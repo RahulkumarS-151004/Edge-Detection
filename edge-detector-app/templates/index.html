@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Neon Edge Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">⚡ Edge Detector</h1>
+        <p class="subtitle">Upload an image to see its edges highlighted with a touch of neon magic ✨</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="image" accept="image/*" required>
+            <button type="submit">Detect Edges</button>
+        </form>
+
+        {% if output %}
+        <div class="result-section">
+            <h2 class="result-title">🖼️ Edge Detected Output</h2>
+            <img src="{{ url_for('static', filename='edgedetected.png') }}" alt="Edge Detected">
+            <a href="/download" class="download-btn">⬇ Download Image</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
